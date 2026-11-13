@@ -1,0 +1,2204 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adrián Vocos | Director Teatral & Productor | La Comedia San Francisco</title>
+  <meta name="description"
+    content="Sitio oficial de Adrián Vocos, director y productor de La Comedia San Francisco. Cartelera de obras, venta oficial de entradas, escuela de formación actoral y trayectoria.">
+
+  <!-- Tipografías: Space Grotesk (Titulares y lectura) + JetBrains Mono (Datos técnicos, fechas, entradas) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       VARIABLES Y PALETA DE COLOR: DARK STAGE MINIMALIST
+       ========================================================================== */
+    :root {
+      --bg-stage: #0B0C0E;
+      --bg-surface-1: #121418;
+      --bg-surface-2: #191C22;
+      --bg-surface-3: #222630;
+
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-medium: rgba(255, 255, 255, 0.16);
+      --border-accent: rgba(229, 169, 60, 0.4);
+
+      --accent-gold: #E5A93C;
+      --accent-gold-hover: #F3BD5E;
+      --accent-gold-soft: rgba(229, 169, 60, 0.12);
+
+      --accent-crimson: #E03E3E;
+      --accent-crimson-soft: rgba(224, 62, 62, 0.15);
+
+      --text-main: #F3F4F6;
+      --text-secondary: #9CA3AF;
+      --text-muted: #6B7280;
+
+      --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+
+      --transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Reset y base */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-stage);
+      color: var(--text-main);
+      font-family: var(--font-heading);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--bg-stage);
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font-family: inherit;
+      color: inherit;
+    }
+
+    /* Layout responsive con reglas exactas de espaciado */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section-gap {
+      padding: 72px 0;
+    }
+
+    @media (max-width: 768px) {
+      .section-gap {
+        padding: 48px 0;
+      }
+    }
+
+    /* Utilitarios tipográficos */
+    .mono-tag {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent-crimson-soft);
+      color: #FF6B6B;
+      border: 1px solid rgba(224, 62, 62, 0.3);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .badge-live::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #FF6B6B;
+      box-shadow: 0 0 8px #FF6B6B;
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.4;
+        transform: scale(0.85);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .section-header {
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-top: 8px;
+    }
+
+    .section-desc {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      max-width: 640px;
+      margin-top: 12px;
+    }
+
+    /* ==========================================================================
+       HEADER & NAVEGACIÓN
+       ========================================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 12, 14, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 16px 0;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-subtitle {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: var(--transition);
+      padding: 6px 0;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      color: var(--text-main);
+    }
+
+    .nav-link.active {
+      color: var(--accent-gold);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-gold {
+      background: var(--accent-gold);
+      color: #0B0C0E;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 10px 18px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--accent-gold);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-gold:hover {
+      background: var(--accent-gold-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-main);
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 10px 18px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-medium);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-outline:hover {
+      background: var(--bg-surface-2);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-whatsapp {
+      background: #128C7E;
+      color: #FFFFFF;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 10px 18px;
+      border-radius: var(--radius-sm);
+      border: 1px solid #128C7E;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: var(--transition);
+    }
+
+    .btn-whatsapp:hover {
+      background: #075E54;
+    }
+
+    /* Menú móvil */
+    .mobile-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      padding: 8px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+    }
+
+    @media (max-width: 900px) {
+      .nav-menu {
+        display: none;
+      }
+
+      .mobile-toggle {
+        display: block;
+      }
+    }
+
+    /* ==========================================================================
+       HERO PRINCIPAL
+       ========================================================================== */
+    .hero-section {
+      position: relative;
+      padding: 60px 0 80px;
+      border-bottom: 1px solid var(--border-subtle);
+      overflow: hidden;
+    }
+
+    .hero-glow {
+      position: absolute;
+      top: -120px;
+      right: 10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(229, 169, 60, 0.08) 0%, rgba(11, 12, 14, 0) 70%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 40px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .hero-headline {
+      font-size: clamp(2.3rem, 4.8vw, 3.6rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+    }
+
+    .hero-headline span.gold-highlight {
+      color: var(--accent-gold);
+      position: relative;
+    }
+
+    .hero-lead {
+      color: var(--text-secondary);
+      font-size: 1.15rem;
+      line-height: 1.6;
+      max-width: 560px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .hero-metrics-bar {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-subtle);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .metric-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .metric-number {
+      font-family: var(--font-mono);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: -0.02em;
+    }
+
+    .metric-label {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-top: 2px;
+    }
+
+    .hero-visual-card {
+      position: relative;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--bg-surface-1);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-main-img {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      filter: contrast(1.05) brightness(0.92);
+      transition: var(--transition);
+    }
+
+    .hero-visual-card:hover .hero-main-img {
+      transform: scale(1.02);
+    }
+
+    .hero-image-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(180deg, rgba(11, 12, 14, 0) 0%, rgba(11, 12, 14, 0.95) 85%);
+      padding: 24px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .hero-overlay-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent-gold);
+      letter-spacing: 0.05em;
+    }
+
+    .hero-overlay-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .hero-metrics-bar {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+      .hero-main-img {
+        height: 340px;
+      }
+    }
+
+    /* ==========================================================================
+       ARTEFACTO DIGITAL: CARTELERA VIVA & ENTRADAS
+       ========================================================================== */
+    .cartelera-section {
+      background: var(--bg-surface-1);
+      border-bottom: 1px solid var(--border-subtle);
+      position: relative;
+    }
+
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+
+    .filter-btn {
+      background: var(--bg-surface-2);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      color: var(--text-main);
+      background: var(--bg-surface-3);
+      border-color: var(--accent-gold);
+    }
+
+    .cartelera-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 24px;
+    }
+
+    .play-card {
+      background: var(--bg-stage);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .play-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .play-poster-wrap {
+      position: relative;
+      height: 230px;
+      overflow: hidden;
+      background: var(--bg-surface-2);
+    }
+
+    .play-poster {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .play-card:hover .play-poster {
+      transform: scale(1.04);
+    }
+
+    .play-badge-float {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      z-index: 2;
+    }
+
+    .play-body {
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      gap: 16px;
+    }
+
+    .play-meta-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--accent-gold);
+    }
+
+    .play-title {
+      font-size: 1.45rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+
+    .play-synopsis {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .play-details-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 12px 14px;
+      background: var(--bg-surface-2);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+    }
+
+    .play-detail-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      color: var(--text-secondary);
+    }
+
+    .play-detail-row strong {
+      color: var(--text-main);
+      font-weight: 600;
+      min-width: 70px;
+    }
+
+    .play-function-selector {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .selector-label {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    .custom-select {
+      background: var(--bg-surface-2);
+      border: 1px solid var(--border-medium);
+      color: var(--text-main);
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      font-family: var(--font-mono);
+      cursor: pointer;
+      outline: none;
+      transition: var(--transition);
+      width: 100%;
+    }
+
+    .custom-select:focus {
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 0 2px var(--accent-gold-soft);
+    }
+
+    .play-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: auto;
+      padding-top: 12px;
+    }
+
+    .btn-buy-ticket {
+      background: var(--accent-gold);
+      color: #0B0C0E;
+      font-weight: 700;
+      font-size: 0.94rem;
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: var(--transition);
+      width: 100%;
+    }
+
+    .btn-buy-ticket:hover {
+      background: var(--accent-gold-hover);
+    }
+
+    .btn-reserve-wa {
+      background: transparent;
+      color: var(--text-secondary);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.82rem;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .btn-reserve-wa:hover {
+      color: var(--text-main);
+      background: var(--bg-surface-2);
+      border-color: var(--border-medium);
+    }
+
+    /* ==========================================================================
+       MODAL DE PASARELA / REDIRECCIÓN A TICKETERA
+       ========================================================================== */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.82);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-backdrop.active {
+      display: flex;
+      animation: fadeIn 0.2s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .ticket-modal {
+      background: var(--bg-surface-1);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius-md);
+      max-width: 500px;
+      width: 100%;
+      padding: 28px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8);
+      position: relative;
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.4rem;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px;
+      transition: var(--transition);
+    }
+
+    .modal-close-btn:hover {
+      color: var(--text-main);
+    }
+
+    .modal-header-tag {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: var(--accent-gold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .modal-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+
+    .modal-summary-box {
+      background: var(--bg-stage);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-secondary);
+    }
+
+    .summary-row span:last-child {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    .modal-notice {
+      background: var(--accent-gold-soft);
+      border-left: 3px solid var(--accent-gold);
+      padding: 12px 14px;
+      font-size: 0.84rem;
+      color: #E2DFD8;
+      line-height: 1.45;
+      margin-bottom: 24px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+
+    /* ==========================================================================
+       ESCUELA DE TEATRO & FORMACIÓN ACTORAL
+       ========================================================================== */
+    .escuela-section {
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .escuela-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .escuela-visual {
+      position: relative;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--bg-surface-1);
+    }
+
+    .escuela-img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+    }
+
+    .escuela-floating-badge {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      background: rgba(11, 12, 14, 0.9);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+    }
+
+    .escuela-cards-col {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .taller-card {
+      background: var(--bg-surface-1);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .taller-card:hover {
+      border-color: var(--border-medium);
+      background: var(--bg-surface-2);
+    }
+
+    .taller-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+
+    .taller-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .taller-cupo {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent-gold);
+    }
+
+    .taller-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    .taller-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .feature-chip {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      background: var(--bg-surface-3);
+      color: var(--text-secondary);
+      padding: 4px 8px;
+      border-radius: var(--radius-sm);
+    }
+
+    @media (max-width: 900px) {
+      .escuela-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .escuela-img {
+        height: 320px;
+      }
+    }
+
+    /* ==========================================================================
+       TRAYECTORIA & DIRECCIÓN ESCÉNICA
+       ========================================================================== */
+    .trayectoria-section {
+      background: var(--bg-surface-1);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .trayectoria-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .manifesto-box {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .quote-big {
+      font-size: 1.45rem;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--text-main);
+      border-left: 3px solid var(--accent-gold);
+      padding-left: 20px;
+    }
+
+    .trayectoria-text {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    .repertoire-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .repertoire-item {
+      background: var(--bg-stage);
+      border: 1px solid var(--border-subtle);
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .repertoire-item .title {
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .repertoire-item .year {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--accent-gold);
+    }
+
+    .trayectoria-visual {
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--bg-stage);
+    }
+
+    .trayectoria-img {
+      width: 100%;
+      height: 460px;
+      object-fit: cover;
+    }
+
+    @media (max-width: 900px) {
+      .trayectoria-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .repertoire-list {
+        grid-template-columns: 1fr;
+      }
+
+      .trayectoria-img {
+        height: 320px;
+      }
+    }
+
+    /* ==========================================================================
+       PREMIOS, RECONOCIMIENTOS & PRENSA
+       ========================================================================== */
+    .premios-section {
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .premios-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .premios-visual {
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .premios-img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+    }
+
+    .premios-col {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .award-card {
+      background: var(--bg-surface-1);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 18px 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      transition: var(--transition);
+    }
+
+    .award-card:hover {
+      border-color: var(--border-accent);
+      background: var(--bg-surface-2);
+    }
+
+    .award-icon {
+      font-size: 1.6rem;
+      line-height: 1;
+      color: var(--accent-gold);
+      background: var(--accent-gold-soft);
+      padding: 10px;
+      border-radius: var(--radius-sm);
+    }
+
+    .award-content {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .award-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .award-desc {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.45;
+    }
+
+    .award-source {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--accent-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 900px) {
+      .premios-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .premios-img {
+        height: 300px;
+      }
+    }
+
+    /* ==========================================================================
+       BANNER SALA LLENA (PRUEBA SOCIAL DE ALTO IMPACTO)
+       ========================================================================== */
+    .sala-llena-banner {
+      position: relative;
+      background: var(--bg-surface-1);
+      border-bottom: 1px solid var(--border-subtle);
+      overflow: hidden;
+      padding: 90px 0;
+    }
+
+    .sala-llena-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.22;
+      filter: grayscale(80%) contrast(1.2);
+    }
+
+    .sala-llena-content {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .sala-llena-title {
+      font-size: clamp(2rem, 3.8vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .sala-llena-desc {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       CONTACTO & CONTRATACIONES
+       ========================================================================== */
+    .contacto-section {
+      padding: 72px 0 90px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .contacto-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 40px;
+    }
+
+    .contacto-info {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .contacto-card {
+      background: var(--bg-surface-1);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .channel-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .channel-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-surface-2);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-gold);
+      font-size: 1.1rem;
+    }
+
+    .form-box {
+      background: var(--bg-surface-1);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-label {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-secondary);
+    }
+
+    .form-input,
+    .form-textarea,
+    .form-select {
+      background: var(--bg-surface-2);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      color: var(--text-main);
+      font-size: 0.92rem;
+      outline: none;
+      transition: var(--transition);
+      width: 100%;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus,
+    .form-select:focus {
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 0 2px var(--accent-gold-soft);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    @media (max-width: 900px) {
+      .contacto-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .site-footer {
+      background: #070809;
+      padding: 40px 0;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .footer-brand {
+      color: var(--text-main);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .footer-link {
+      color: var(--text-secondary);
+      transition: var(--transition);
+      font-size: 0.86rem;
+    }
+
+    .footer-link:hover {
+      color: var(--accent-gold);
+    }
+
+    /* Regla móvil inquebrantable: botones a full-width en pantallas <= 560px */
+    @media (max-width: 560px) {
+
+      .btn-gold,
+      .btn-outline,
+      .btn-whatsapp,
+      .btn-buy-ticket {
+        width: 100%;
+      }
+
+      .hero-cta-group {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .filter-pills {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 8px;
+      }
+
+      .filter-btn {
+        flex-shrink: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Barra de Switcher A/B para que Adrián compare en vivo -->
+  <aside
+    style="background: #191C22; color: #F3F4F6; padding: 8px 16px; font-family: var(--font-mono); font-size: 0.78rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(229,169,60,0.3); z-index: 101; position: relative;">
+    <span style="color: var(--accent-gold);">✦ EDICIÓN OSCURA · DARK STAGE MINIMALIST</span>
+    <a href="./index_gala_patrimonio.html"
+      style="color: #FFFFFF; text-decoration: underline; font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">
+      <span>Ver Versión 2 (Gala & Patrimonio Neoclásico)</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 12h14" />
+        <path d="m12 5 7 7-7 7" />
+      </svg>
+    </a>
+  </aside>
+
+  <!-- ========================================================================
+       BARRA SUPERIOR / HEADER
+       ======================================================================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#inicio" class="brand">
+        <span class="brand-name">
+          ADRIÁN VOCOS
+        </span>
+        <span class="brand-subtitle">La Comedia San Francisco · Teatro</span>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#cartelera" class="nav-link active">Cartelera & Entradas</a></li>
+          <li><a href="#escuela" class="nav-link">Escuela de Teatro</a></li>
+          <li><a href="#trayectoria" class="nav-link">Dirección</a></li>
+          <li><a href="#premios" class="nav-link">Premios</a></li>
+          <li><a href="#contacto" class="nav-link">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#cartelera" class="btn-gold">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2" />
+            <line x1="2" y1="10" x2="22" y2="10" />
+            <circle cx="7" cy="15" r="1" />
+          </svg>
+          Comprar Entradas
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ========================================================================
+         HERO SECTION
+         ======================================================================== -->
+    <section id="inicio" class="hero-section">
+      <div class="hero-glow"></div>
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="mono-tag">
+            <span class="badge-live">Cartelera Abierta</span>
+            TEMPORADA 2026/2027 · CÓRDOBA & GIRA
+          </div>
+
+          <h1 class="hero-headline">
+            El teatro que conmueve, <span class="gold-highlight">llena salas</span> y deja huella.
+          </h1>
+
+          <p class="hero-lead">
+            Dirección, producción escénica y escuela de formación actoral bajo la mirada de <strong>Adrián
+              Vocos</strong>. Viví la experiencia de La Comedia San Francisco en las mejores salas del país.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#cartelera" class="btn-gold">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
+                <path d="M13 5v2" />
+                <path d="M13 17v2" />
+                <path d="M13 11v2" />
+              </svg>
+              Ver Funciones & Sacar Entradas
+            </a>
+            <a href="#escuela" class="btn-outline">
+              Formación Actoral 2027
+            </a>
+          </div>
+
+          <!-- Métricas de autoridad y trayectoria -->
+          <div class="hero-metrics-bar">
+            <div class="metric-item">
+              <span class="metric-number">+15 AÑOS</span>
+              <span class="metric-label">De Producción</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-number">+45 OBRAS</span>
+              <span class="metric-label">En Escena</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-number">PREMIOS</span>
+              <span class="metric-label">Carlos & Hugo</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-number">+85.000</span>
+              <span class="metric-label">Espectadores</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual-card">
+          <img src="./images/adrian-teatro.jpg" alt="Adrián Vocos - Director Teatral" class="hero-main-img"
+            onerror="this.src='https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?auto=format&fit=crop&w=800&q=80'">
+          <div class="hero-image-overlay">
+            <span class="hero-overlay-tag">[ DIRECCIÓN ARTÍSTICA ]</span>
+            <span class="hero-overlay-title">Adrián Vocos · Director General</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         ARTEFACTO DIGITAL: CARTELERA VIVA & ENTRADAS
+         ======================================================================== -->
+    <section id="cartelera" class="cartelera-section section-gap">
+      <div class="container">
+        <div class="section-header">
+          <div class="mono-tag">[ PROGRAMACIÓN OFICIAL ]</div>
+          <h2 class="section-title">Obras en Cartel & Próximas Funciones</h2>
+          <p class="section-desc">
+            Elegí tu fecha, seleccioná tu función y accedé de inmediato a la plataforma oficial de entradas con tu
+            ubicación reservada.
+          </p>
+        </div>
+
+        <!-- Filtros de cartelera -->
+        <div class="filter-pills">
+          <button class="filter-btn active" onclick="filterPlays('todas', this)">Todas las Obras</button>
+          <button class="filter-btn" onclick="filterPlays('comedia', this)">Comedias & Dramas</button>
+          <button class="filter-btn" onclick="filterPlays('musical', this)">Teatro Musical / Familiar</button>
+        </div>
+
+        <!-- Grilla de obras con selector y pasarela de pago contratada -->
+        <div class="cartelera-grid">
+
+          <!-- Obra 1: El Conventillo de la Paloma -->
+          <article class="play-card" data-category="comedia">
+            <div class="play-poster-wrap">
+              <img src="./images/adrian-teatro-obra.jpg"
+                alt="El Conventillo de la Paloma - La Comedia San Francisco" class="play-poster"
+                onerror="this.src='https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212?auto=format&fit=crop&w=700&q=80'">
+              <div class="play-badge-float">
+                <span class="badge-live">Últimas 24 Plateas</span>
+              </div>
+            </div>
+
+            <div class="play-body">
+              <div class="play-meta-top">
+                <span>COMEDIA POPULAR ARGENTINA</span>
+                <span>DURACIÓN: 90 MIN</span>
+              </div>
+
+              <h3 class="play-title">El Conventillo de la Paloma</h3>
+              <p class="play-synopsis">
+                La clásica comedia sainetera de Alberto Vaccarezza con más de 20 artistas en escena, orquesta y el sello
+                inconfundible de La Comedia San Francisco. Un éxito arrollador en cada presentación.
+              </p>
+
+              <div class="play-details-list">
+                <div class="play-detail-row">
+                  <strong>Dirección:</strong> <span>Adrián Vocos</span>
+                </div>
+                <div class="play-detail-row">
+                  <strong>Sala:</strong> <span>Teatro Mayo (San Francisco, Cba)</span>
+                </div>
+              </div>
+
+              <div class="play-function-selector">
+                <label for="fecha-obra-1" class="selector-label">Seleccioná Función y Horario:</label>
+                <select id="fecha-obra-1" class="custom-select">
+                  <option value="Viernes 20 de Noviembre - 21:30 hs [Quedan 18 entradas]">Viernes 20 de Nov · 21:30 hs
+                    (Quedan 18)</option>
+                  <option value="Sábado 21 de Noviembre - 21:30 hs [Últimas 6 plateas]">Sábado 21 de Nov · 21:30 hs
+                    (Últimas 6)</option>
+                  <option value="Domingo 29 de Noviembre - 20:30 hs [Nueva función]">Domingo 29 de Nov · 20:30 hs
+                    (Nueva)</option>
+                </select>
+              </div>
+
+              <div class="play-actions">
+                <button type="button" class="btn-buy-ticket"
+                  onclick="openTicketModal('El Conventillo de la Paloma', document.getElementById('fecha-obra-1').value, 'Teatro Mayo')">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
+                    <path d="M13 5v2" />
+                    <path d="M13 17v2" />
+                    <path d="M13 11v2" />
+                  </svg>
+                  Comprar Entradas Online
+                </button>
+                <a href="https://wa.me/5493564000000?text=Hola%20Adrian,%20quisiera%20consultar%20por%20entradas%20para%20El%20Conventillo%20de%20la%20Paloma"
+                  target="_blank" rel="noopener noreferrer" class="btn-reserve-wa">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                  </svg>
+                  Consultar reservas por WhatsApp
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Obra 2: Bajo Terapia -->
+          <article class="play-card" data-category="comedia">
+            <div class="play-poster-wrap">
+              <img src="./images/adrian-teatro-direccion.jpg" alt="Bajo Terapia - Dirección Adrián Vocos"
+                class="play-poster"
+                onerror="this.src='https://images.unsplash.com/photo-1514306191717-452ec28c7814?auto=format&fit=crop&w=700&q=80'">
+              <div class="play-badge-float">
+                <span class="mono-tag"
+                  style="background: rgba(11,12,14,0.9); padding: 4px 8px; border: 1px solid var(--border-medium); border-radius: var(--radius-sm);">ESTRENO</span>
+              </div>
+            </div>
+
+            <div class="play-body">
+              <div class="play-meta-top">
+                <span>COMEDIA DRAMÁTICA</span>
+                <span>DURACIÓN: 80 MIN</span>
+              </div>
+
+              <h3 class="play-title">Bajo Terapia</h3>
+              <p class="play-synopsis">
+                Tres parejas acuden a una sesión de terapia muy particular donde el psicólogo no está y ellos deberán
+                analizarse entre sí. Una comedia filosa, inteligente y desopilante.
+              </p>
+
+              <div class="play-details-list">
+                <div class="play-detail-row">
+                  <strong>Dirección:</strong> <span>Adrián Vocos</span>
+                </div>
+                <div class="play-detail-row">
+                  <strong>Sala:</strong> <span>Teatrillo Municipal (San Francisco)</span>
+                </div>
+              </div>
+
+              <div class="play-function-selector">
+                <label for="fecha-obra-2" class="selector-label">Seleccioná Función y Horario:</label>
+                <select id="fecha-obra-2" class="custom-select">
+                  <option value="Sábado 28 de Noviembre - 21:00 hs [Estreno Oficial]">Sábado 28 de Nov · 21:00 hs
+                    (Estreno)</option>
+                  <option value="Domingo 29 de Noviembre - 20:00 hs [Disponibles]">Domingo 29 de Nov · 20:00 hs
+                    (Disponibles)</option>
+                  <option value="Viernes 4 de Diciembre - 21:30 hs [Disponibles]">Viernes 4 de Dic · 21:30 hs
+                    (Disponibles)</option>
+                </select>
+              </div>
+
+              <div class="play-actions">
+                <button type="button" class="btn-buy-ticket"
+                  onclick="openTicketModal('Bajo Terapia', document.getElementById('fecha-obra-2').value, 'Teatrillo Municipal')">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
+                    <path d="M13 5v2" />
+                    <path d="M13 17v2" />
+                    <path d="M13 11v2" />
+                  </svg>
+                  Comprar Entradas Online
+                </button>
+                <a href="https://wa.me/5493564000000?text=Hola%20Adrian,%20quisiera%20consultar%20por%20entradas%20para%20Bajo%20Terapia"
+                  target="_blank" rel="noopener noreferrer" class="btn-reserve-wa">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                  </svg>
+                  Consultar reservas por WhatsApp
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Obra 3: La Gran Gala Musical -->
+          <article class="play-card" data-category="musical">
+            <div class="play-poster-wrap">
+              <img src="./images/adrian-teatro-lleno.jpg" alt="La Gran Gala Musical - La Comedia San Francisco"
+                class="play-poster"
+                onerror="this.src='https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=700&q=80'">
+              <div class="play-badge-float">
+                <span class="mono-tag"
+                  style="background: rgba(11,12,14,0.9); padding: 4px 8px; border: 1px solid var(--accent-gold); border-radius: var(--radius-sm); color: var(--accent-gold);">TEATRO
+                  FAMILIAR</span>
+              </div>
+            </div>
+
+            <div class="play-body">
+              <div class="play-meta-top">
+                <span>TEATRO MUSICAL / GIRA</span>
+                <span>DURACIÓN: 75 MIN</span>
+              </div>
+
+              <h3 class="play-title">Mundo Mágico: El Musical</h3>
+              <p class="play-synopsis">
+                Una puesta en escena deslumbrante con vestuarios de alta costura, efectos de iluminación y coreografías
+                para toda la familia. La magia de los grandes relatos en vivo.
+              </p>
+
+              <div class="play-details-list">
+                <div class="play-detail-row">
+                  <strong>Dirección:</strong> <span>Adrián Vocos</span>
+                </div>
+                <div class="play-detail-row">
+                  <strong>Sala:</strong> <span>Auditorio Teatro Real (Gira Córdoba)</span>
+                </div>
+              </div>
+
+              <div class="play-function-selector">
+                <label for="fecha-obra-3" class="selector-label">Seleccioná Función y Horario:</label>
+                <select id="fecha-obra-3" class="custom-select">
+                  <option value="Sábado 5 de Diciembre - 18:00 hs [Gira Córdoba Capital]">Sábado 5 de Dic · 18:00 hs
+                    (Córdoba)</option>
+                  <option value="Domingo 6 de Diciembre - 17:30 hs [Gira Córdoba Capital]">Domingo 6 de Dic · 17:30 hs
+                    (Córdoba)</option>
+                  <option value="Sábado 12 de Diciembre - 19:00 hs [San Francisco]">Sábado 12 de Dic · 19:00 hs (San
+                    Fco)</option>
+                </select>
+              </div>
+
+              <div class="play-actions">
+                <button type="button" class="btn-buy-ticket"
+                  onclick="openTicketModal('Mundo Mágico: El Musical', document.getElementById('fecha-obra-3').value, 'Auditorio Teatro Real')">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
+                    <path d="M13 5v2" />
+                    <path d="M13 17v2" />
+                    <path d="M13 11v2" />
+                  </svg>
+                  Comprar Entradas Online
+                </button>
+                <a href="https://wa.me/5493564000000?text=Hola%20Adrian,%20quisiera%20consultar%20por%20entradas%20para%20Mundo%20Magico"
+                  target="_blank" rel="noopener noreferrer" class="btn-reserve-wa">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                  </svg>
+                  Consultar reservas por WhatsApp
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         ESCUELA DE TEATRO & FORMACIÓN ACTORAL
+         ======================================================================== -->
+    <section id="escuela" class="escuela-section section-gap">
+      <div class="container">
+        <div class="section-header">
+          <div class="mono-tag">[ FORMACIÓN INTEGRAL ]</div>
+          <h2 class="section-title">Escuela de Teatro La Comedia San Francisco</h2>
+          <p class="section-desc">
+            Un espacio formativo de referencia regional donde el juego, el entrenamiento riguroso de la voz, el cuerpo y
+            el escenario se fusionan con la experiencia real de subir a las tablas.
+          </p>
+        </div>
+
+        <div class="escuela-grid">
+          <div class="escuela-visual">
+            <img src="./images/adrian-teatro-direccion.jpg" alt="Adrián Vocos dirigiendo formación actoral"
+              class="escuela-img"
+              onerror="this.src='https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?auto=format&fit=crop&w=800&q=80'">
+            <div class="escuela-floating-badge">
+              <div class="mono-tag" style="margin-bottom: 4px;">CICLO LECTIVO 2027</div>
+              <p style="font-size: 0.88rem; color: var(--text-main); font-weight: 500;">
+                Inscripciones abiertas con cupos limitados para todas las edades.
+              </p>
+            </div>
+          </div>
+
+          <div class="escuela-cards-col">
+            <!-- Taller Niños & Jóvenes -->
+            <div class="taller-card">
+              <div class="taller-header">
+                <h3 class="taller-name">Taller Infantil & Adolescentes</h3>
+                <span class="taller-cupo">De 6 a 17 Años</span>
+              </div>
+              <p class="taller-desc">
+                Desinhibición, estímulo de la imaginación, dicción, confianza y trabajo en equipo. Muestra escénica de
+                cierre de año en sala teatral con vestuario y público.
+              </p>
+              <div class="taller-features">
+                <span class="feature-chip">Juego Dramático</span>
+                <span class="feature-chip">Expresión Corporal</span>
+                <span class="feature-chip">Muestra Teatral Anual</span>
+              </div>
+            </div>
+
+            <!-- Taller Adultos Inicial & Medio -->
+            <div class="taller-card">
+              <div class="taller-header">
+                <h3 class="taller-name">Formación Actoral Adultos</h3>
+                <span class="taller-cupo">Iniciales & Medios</span>
+              </div>
+              <p class="taller-desc">
+                Herramientas de actuación realista, análisis de texto dramático, presencia escénica y dominio de la
+                escena para personas con o sin experiencia previa.
+              </p>
+              <div class="taller-features">
+                <span class="feature-chip">Construcción de Personaje</span>
+                <span class="feature-chip">Dramaturgia Activa</span>
+                <span class="feature-chip">Montaje Escénico</span>
+              </div>
+            </div>
+
+            <!-- Elenco Estable / Producción -->
+            <div class="taller-card">
+              <div class="taller-header">
+                <h3 class="taller-name">Laboratorio & Elenco de Producción</h3>
+                <span class="taller-cupo">Nivel Avanzado</span>
+              </div>
+              <p class="taller-desc">
+                Práctica profesional intensiva orientada a la integración en las producciones oficiales y giras
+                provinciales de La Comedia San Francisco.
+              </p>
+              <div class="taller-features">
+                <span class="feature-chip">Ensayos de Temporada</span>
+                <span class="feature-chip">Giras Regionales</span>
+                <span class="feature-chip">Teatro Profesional</span>
+              </div>
+            </div>
+
+            <div style="margin-top: 8px;">
+              <a href="https://wa.me/5493564000000?text=Hola%20Adrian,%20quisiera%20consultar%20por%20los%20talleres%20de%20teatro%20y%20la%20escuela%20de%20formacion"
+                target="_blank" rel="noopener noreferrer" class="btn-gold" style="width: 100%;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+                Consultar Disponibilidad de Cupos por WhatsApp
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         TRAYECTORIA & DIRECCIÓN ESCÉNICA
+         ======================================================================== -->
+    <section id="trayectoria" class="trayectoria-section section-gap">
+      <div class="container">
+        <div class="trayectoria-grid">
+          <div class="manifesto-box">
+            <div class="mono-tag">[ EL SELLO DE DIRECCIÓN ]</div>
+            <h2 class="section-title">El rigor teatral llevado al corazón de la gente</h2>
+
+            <blockquote class="quote-big">
+              "El teatro no es un museo; es un acontecimiento vivo, popular y desafiante que ocurre aquí y ahora frente
+              a los ojos del espectador."
+            </blockquote>
+
+            <p class="trayectoria-text">
+              Adrián Vocos ha consolidado un modelo de producción teatral independiente desde San Francisco, Córdoba,
+              capaz de medirse de igual a igual con las grandes carteleras de Buenos Aires y Carlos Paz. Su labor
+              combina la dramaturgia clásica nacional con adaptaciones universales y musicales de gran envergadura.
+            </p>
+
+            <div class="repertoire-list">
+              <div class="repertoire-item">
+                <span class="title">El Conventillo de la Paloma</span>
+                <span class="year">2023 - 2026 · Dirección General</span>
+              </div>
+              <div class="repertoire-item">
+                <span class="title">Bajo Terapia</span>
+                <span class="year">2024 - 2026 · Dirección & Puesta</span>
+              </div>
+              <div class="repertoire-item">
+                <span class="title">La Casa de Bernarda Alba</span>
+                <span class="year">Producción & Gira Provincial</span>
+              </div>
+              <div class="repertoire-item">
+                <span class="title">Grandes Musicales Infantiles</span>
+                <span class="year">Temporadas Oficiales Teatro Mayo</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="trayectoria-visual">
+            <img src="./images/adrian-teatro-obra.jpg" alt="Puesta en escena dirigida por Adrián Vocos"
+              class="trayectoria-img"
+              onerror="this.src='https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?auto=format&fit=crop&w=800&q=80'">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         PREMIOS, RECONOCIMIENTOS & PRENSA
+         ======================================================================== -->
+    <section id="premios" class="premios-section section-gap">
+      <div class="container">
+        <div class="section-header">
+          <div class="mono-tag">[ RECONOCIMIENTOS & CRÍTICA ]</div>
+          <h2 class="section-title">Distinciones al Teatro de Excelencia</h2>
+          <p class="section-desc">
+            Años de compromiso con las artes escénicas respaldados por la crítica, el jurado y el reconocimiento
+            institucional provincial y nacional.
+          </p>
+        </div>
+
+        <div class="premios-grid">
+          <div class="premios-visual">
+            <img src="./images/adrian-teatro-premio.jpg" alt="Adrián Vocos recibiendo distinción teatral"
+              class="premios-img"
+              onerror="this.src='https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=800&q=80'">
+          </div>
+
+          <div class="premios-col">
+            <div class="award-card">
+              <div class="award-icon">🏆</div>
+              <div class="award-content">
+                <span class="award-source">PREMIOS CARLOS · VILLA CARLOS PAZ</span>
+                <h4 class="award-title">Reconocimiento al Teatro Independiente</h4>
+                <p class="award-desc">
+                  Distinción por la labor artística, el despliegue escénico y la calidad de producción de elencos
+                  cordobeses en temporada.
+                </p>
+              </div>
+            </div>
+
+            <div class="award-card">
+              <div class="award-icon">🎭</div>
+              <div class="award-content">
+                <span class="award-source">PREMIOS HUGO FEDERALES</span>
+                <h4 class="award-title">Nominaciones al Teatro Musical Argentino</h4>
+                <p class="award-desc">
+                  Mención a la excelencia en puestas musicales, ensamble actoral y vestuario en producciones de gran
+                  formato fuera de CABA.
+                </p>
+              </div>
+            </div>
+
+            <div class="award-card">
+              <div class="award-icon">🏛️</div>
+              <div class="award-content">
+                <span class="award-source">HONORABLE CONCEJO DELIBERANTE</span>
+                <h4 class="award-title">Declaración de Interés Cultural Municipal</h4>
+                <p class="award-desc">
+                  Reconocimiento institucional por el aporte ininterrumpido al desarrollo de la cultura, la formación de
+                  jóvenes y la escena teatral de San Francisco.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         BANNER SALA LLENA (IMPACTO VISUAL)
+         ======================================================================== -->
+    <section class="sala-llena-banner">
+      <img src="./images/adrian-teatro-lleno.jpg" alt="Sala repleta aplaudiendo a La Comedia San Francisco"
+        class="sala-llena-bg"
+        onerror="this.src='https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1200&q=80'">
+      <div class="container">
+        <div class="sala-llena-content">
+          <div class="mono-tag"
+            style="background: rgba(11,12,14,0.85); padding: 4px 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+            [ EL APLAUSO DE PIE ]
+          </div>
+          <h2 class="sala-llena-title">
+            Más de 85.000 personas ya vibraron con nuestras obras
+          </h2>
+          <p class="sala-llena-desc">
+            Salas colmadas, funciones con localidades agotadas semanas antes y la ovación del público en cada función
+            son el motor que impulsa cada nuevo estreno.
+          </p>
+          <a href="#cartelera" class="btn-gold" style="font-size: 1rem; padding: 14px 28px;">
+            Asegurá tu Lugar en Sala
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         CONTACTO & CONTRATACIONES
+         ======================================================================== -->
+    <section id="contacto" class="contacto-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="mono-tag">[ CONTACTO DIRECTO ]</div>
+          <h2 class="section-title">Contrataciones, Giras & Consultas</h2>
+          <p class="section-desc">
+            Llevá las obras de La Comedia San Francisco a tu festival o teatro, o consultá por funciones especiales y
+            clases magistrales.
+          </p>
+        </div>
+
+        <div class="contacto-grid">
+          <div class="contacto-info">
+            <div class="contacto-card">
+              <h3 style="font-size: 1.15rem; font-weight: 700;">Canales de Atención Oficial</h3>
+
+              <div class="channel-row">
+                <div class="channel-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                  </svg>
+                </div>
+                <div>
+                  <div style="font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono);">WHATSAPP
+                    DIRECTO</div>
+                  <strong style="color: var(--text-main);">+54 9 (3564) 15-000000</strong>
+                </div>
+              </div>
+
+              <div class="channel-row">
+                <div class="channel-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                  </svg>
+                </div>
+                <div>
+                  <div style="font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono);">INSTAGRAM
+                    OFICIAL</div>
+                  <a href="https://www.instagram.com/adrianvocos/" target="_blank" rel="noopener noreferrer"
+                    style="color: var(--accent-gold); font-weight: 600;">@adrianvocos</a>
+                </div>
+              </div>
+
+              <div class="channel-row">
+                <div class="channel-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                  </svg>
+                </div>
+                <div>
+                  <div style="font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono);">FACEBOOK
+                    OFICIAL</div>
+                  <a href="https://www.facebook.com/adrian.vocos/" target="_blank" rel="noopener noreferrer"
+                    style="color: var(--accent-gold); font-weight: 600;">/adrian.vocos</a>
+                </div>
+              </div>
+
+              <div class="channel-row">
+                <div class="channel-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                </div>
+                <div>
+                  <div style="font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono);">SEDE DE
+                    PRODUCCIÓN</div>
+                  <strong style="color: var(--text-main);">San Francisco, Córdoba, Argentina</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Formulario interactivo -->
+          <form class="form-box"
+            onsubmit="event.preventDefault(); alert('Mensaje preparado para enviar a la dirección artística de Adrián Vocos.');">
+            <h3 style="font-size: 1.15rem; font-weight: 700;">Envianos tu Consulta</h3>
+
+            <div class="form-group">
+              <label for="f-nombre" class="form-label">Nombre y Apellido</label>
+              <input type="text" id="f-nombre" class="form-input" placeholder="Ej: Marcela González" required>
+            </div>
+
+            <div class="form-group">
+              <label for="f-motivo" class="form-label">Motivo de Contacto</label>
+              <select id="f-motivo" class="form-select">
+                <option value="entradas">Consulta sobre Venta de Entradas y Reservas</option>
+                <option value="escuela">Inscripción / Información Talleres de Teatro 2027</option>
+                <option value="gira">Contratación de Obras para Giras y Festivales</option>
+                <option value="prensa">Prensa, Notas y Entrevistas</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="f-telefono" class="form-label">Teléfono / WhatsApp</label>
+              <input type="tel" id="f-telefono" class="form-input" placeholder="Ej: +54 9 3564 000000" required>
+            </div>
+
+            <div class="form-group">
+              <label for="f-mensaje" class="form-label">Mensaje o Detalle</label>
+              <textarea id="f-mensaje" class="form-textarea" placeholder="Escribí tu mensaje acá..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-gold" style="width: 100%;">
+              Enviar Mensaje a la Producción
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       MODAL DE PASARELA / REDIRECCIÓN A TICKETERA OFICIAL
+       ======================================================================== -->
+  <div id="ticketModalBackdrop" class="modal-backdrop" onclick="closeModalOnBackdrop(event)">
+    <div class="ticket-modal">
+      <button class="modal-close-btn" onclick="closeTicketModal()" aria-label="Cerrar ventana">&times;</button>
+      <div class="modal-header-tag">[ PLATAFORMA OFICIAL DE PAGO ]</div>
+      <h3 class="modal-title" id="modalPlayTitle">Obra Seleccionada</h3>
+
+      <div class="modal-summary-box">
+        <div class="summary-row">
+          <span>Función:</span>
+          <span id="modalFunctionDate">-</span>
+        </div>
+        <div class="summary-row">
+          <span>Sala:</span>
+          <span id="modalVenue">-</span>
+        </div>
+        <div class="summary-row">
+          <span>Ubicación:</span>
+          <span style="color: var(--accent-gold);">Selección en Plano de Sala</span>
+        </div>
+      </div>
+
+      <div class="modal-notice">
+        <strong>Redirección directa y segura:</strong> Estás por ingresar a la plataforma de pago oficial contratada por
+        Adrián Vocos. Tus entradas se emitirán con código QR instantáneo sin comisiones intermedias no autorizadas.
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <button type="button" class="btn-gold" style="width: 100%;" onclick="proceedToPayment()">
+          Continuar a la Plataforma de Pago
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </button>
+        <button type="button" class="btn-outline" style="width: 100%;" onclick="closeTicketModal()">
+          Volver a la Cartelera
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       FOOTER
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <span class="footer-brand">ADRIÁN VOCOS · LA COMEDIA SAN FRANCISCO</span>
+        <span>San Francisco, Córdoba · Todos los derechos reservados © 2026</span>
+      </div>
+
+      <ul class="footer-links">
+        <li><a href="#cartelera" class="footer-link">Cartelera</a></li>
+        <li><a href="#escuela" class="footer-link">Escuela</a></li>
+        <li><a href="#trayectoria" class="footer-link">Dirección</a></li>
+        <li><a href="#contacto" class="footer-link">Contacto</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       SCRIPTS INTERACTIVOS DE LA DEMO
+       ======================================================================== -->
+  <script>
+    // Filtro interactivo de obras
+    function filterPlays(category, btnElement) {
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+      if (btnElement) btnElement.classList.add('active');
+
+      const cards = document.querySelectorAll('.play-card');
+      cards.forEach(card => {
+        if (category === 'todas') {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = card.getAttribute('data-category') === category ? 'flex' : 'none';
+        }
+      });
+    }
+
+    // Modal de Ticketera y Redirección de Pago
+    const modal = document.getElementById('ticketModalBackdrop');
+    let currentPlay = '';
+
+    function openTicketModal(playTitle, functionDate, venue) {
+      currentPlay = playTitle;
+      document.getElementById('modalPlayTitle').textContent = playTitle;
+      document.getElementById('modalFunctionDate').textContent = functionDate;
+      document.getElementById('modalVenue').textContent = venue;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeTicketModal() {
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    function closeModalOnBackdrop(event) {
+      if (event.target === modal) {
+        closeTicketModal();
+      }
+    }
+
+    function proceedToPayment() {
+      // Simula la redirección al link de pago / ticketera oficial configurada
+      alert('Redirigiendo a la plataforma de pago contratada por Adrián Vocos para completar la compra de: ' + currentPlay);
+      closeTicketModal();
+    }
+
+    // Cerrar modal con tecla ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
+        closeTicketModal();
+      }
+    });
+  </script>
+</body>
+
+</html>
